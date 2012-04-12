@@ -1,0 +1,6 @@
+start: Wed Mar 21 22:20:02 PDT 2012
+sierra470.28ipath_userinit: userinit command failed: Cannot allocate memory
+srun: mvapich: 2012-03-21T22:20:12: ABORT from MPI rank 28 [on sierra470]
+sierra470.28Driver initialization failure on /dev/ipath (err=23)
+[28:sierra470] Abort: Failed to open an end-point at line 288 in file psminit.c
+srun: error: sierra470: task 28: Exited with exit code 255

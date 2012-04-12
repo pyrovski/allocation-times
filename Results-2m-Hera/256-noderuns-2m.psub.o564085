@@ -1,0 +1,6 @@
+start: Thu Mar 22 10:20:04 PDT 2012
+srun: error: Task launch for 564085.0 failed on node hera601: Socket timed out on send/recv operation
+srun: error: Task launch for 564085.0 failed on node hera598: Socket timed out on send/recv operation
+srun: error: Task launch for 564085.0 failed on node hera599: Socket timed out on send/recv operation
+srun: error: Task launch for 564085.0 failed on node hera595: Socket timed out on send/recv operation
+srun: error: Application launch failed: Socket timed out on send/recv operation
