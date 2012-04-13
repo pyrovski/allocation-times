@@ -4,11 +4,36 @@ a =read.table('table', header=T);
 
 for(reqTime in c('5hr', '2m')){
   for(system in c('Hera', 'Sierra')){
-    pdf(paste(system, '_', reqTime, '.pdf', sep=''));
+    # split each dataset into two plots
     sel = intersect(which(a$time_req == reqTime), which(a$system == system));
     times = a$stop_time[sel] - a$start_time[sel];
-    plot(a$nodes[sel], times, main=paste(system,'time to allocation for',reqTime,'jobs'),ylab='time to allocation (s)', xlab='number of nodes', xaxt='n'); 
-    axis(1, at=unique(a$nodes[sel]));
+
+    #! @todo these should be computed for each node configuration
+    meanTime = mean(times);
+    sdTime = sd(times);
+    include = 2;
+    
+    sel1 = which(times <= meanTime + include*sdTime);
+    sel2 = which(times > meanTime + include*sdTime)
+
+    pdf(paste(system, '_', reqTime, '.pdf', sep=''));
+    plot(a$nodes[sel[sel1]], times[sel1], 
+	 main=paste(system,'time to allocation for',reqTime,'jobs (log-log)'),
+	 ylab='time to allocation (s)', xlab='number of nodes', 
+	 xaxt='n', log='xy', 
+	 sub=paste('not showing', length(sel2), 'outliers outside', include, 'st. dev.'));
+    axis(1, at=unique(a$nodes[sel[sel1]]));
     dev.off();
+    
+    if(length(sel2) > 0){
+      pdf(paste(system, '_', reqTime, '_outliers.pdf', sep=''));
+      plot(a$nodes[sel[sel2]], times[sel2], 
+	   main=paste(system,'time to allocation for',reqTime,'jobs (outliers) (log-log)'),
+	   ylab='time to allocation (s)', 
+	   xlab='number of nodes', 
+	   xaxt='n', log='xy');
+      axis(1, at=unique(a$nodes[sel[sel2]]));
+      dev.off();
+    }
   }
  }
