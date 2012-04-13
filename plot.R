@@ -31,7 +31,7 @@ for(reqTime in c('5hr', '2m')){
 	   main=paste(system,'time to allocation for',reqTime,'jobs (outliers) (log-log)'),
 	   ylab='time to allocation (s)', 
 	   xlab='number of nodes', 
-	   xaxt='n', log='xy');
+	   xaxt='n', log='xy', sub=paste('showing', length(sel2), 'outliers only'));
       axis(1, at=unique(a$nodes[sel[sel2]]));
       dev.off();
     }
