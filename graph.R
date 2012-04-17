@@ -30,6 +30,7 @@ boxplot(
 	outline=F,
 	at=at,
 	xlim=c(2,11),
+	ylim=c(0,16),
 	xlab="Requested Nodes", 
 	ylab="Log2 Seconds to Job Start", main="Time to job start vs. system, requested nodes and job length",
 	boxwex=.13
