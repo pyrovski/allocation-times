@@ -1,12 +1,36 @@
 #!/usr/bin/env Rscript
 
+octiles = function(input){
+  med = c();
+  med[4] = median(input)
+  med[6] = median(input[input > med[4]])
+  med[5] = median(input[input > med[4] & input <= med[6]])
+  med[7] = median(input[input > med[6]])
+  med[2] = median(input[input <= med[4]])
+  med[3] = median(input[input <= med[4] & input > med[2]])
+  med[1] = median(input[input <= med[2]])
+  return(med);
+}
+
 a =read.table('table', header=T);
 
-for(reqTime in c('5hr', '2m')){
-  for(system in c('Hera', 'Sierra')){
+cat('system\treqTime\tnodes\tmedian\t1st_oct\t7th_oct\n')
+
+for(system in c('Hera', 'Sierra')){
+  for(reqTime in c('5hr', '2m')){
     # split each dataset into two plots
     sel = intersect(which(a$time_req == reqTime), which(a$system == system));
     times = a$stop_time[sel] - a$start_time[sel];
+
+    for(nodes in sort(unique(a$nodes[sel]))){
+      # compute median, 1st & 7th octiles
+      nsel = intersect(sel, which(a$nodes == nodes))
+      ntimes = a$stop_time[nsel] - a$start_time[nsel]
+      med = octiles(ntimes)
+      
+      cat(paste(system, reqTime, nodes, med[4], med[1], med[7], sep='\t'))
+      cat('\n')
+    }
 
     #! @todo these should be computed for each node configuration
     meanTime = mean(times);
