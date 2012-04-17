@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 d<-read.table("table", header=T)
 d$elapsed<-d$stop_time-d$start_time
 
@@ -23,15 +25,18 @@ boxplot(
 	~
 	c(log2(d$nodes[m1])+0.01, log2(d$nodes[m2])+0.02, log2(d$nodes[m3])+0.03, log2(d$nodes[m4])+0.04),
 	xaxt="n",
+#	yaxt="n",
 	col=col,
 	outline=F,
 	at=at,
 	xlim=c(2,11),
-	xlab="Log2 Requested Nodes", ylab="Log2 Seconds to Job Start", main="Time to job start vs. system, requested nodes and job length",
+	xlab="Requested Nodes", 
+	ylab="Log2 Seconds to Job Start", main="Time to job start vs. system, requested nodes and job length",
 	boxwex=.13
 	)
 
 legend("bottomright", legend=c("Sierra, 2-minute job", "Sierra, 5-hour job", "Hera, 2-minute job", "Hera, 5-hour job"), fill=c(c1, c2, c3, c4) )
 
-axis(side=1, at=3:10)
+#axis(side=2, at=seq(0,14,2), labels=10^(seq(0,14,2)-2))
+axis(side=1, at=3:10, labels=2^(3:10))
 dev.off()
