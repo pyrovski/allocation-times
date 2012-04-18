@@ -14,7 +14,7 @@ octiles = function(input){
 
 a =read.table('table', header=T);
 
-cat('system\treqTime\tnodes\tmedian\t1st_oct\t7th_oct\n')
+cat('system\treqTime\tnodes\tmin\tmedian\t1st_oct\t7th_oct\n')
 
 for(system in c('Hera', 'Sierra')){
   for(reqTime in c('5hr', '2m')){
@@ -27,8 +27,9 @@ for(system in c('Hera', 'Sierra')){
       nsel = intersect(sel, which(a$nodes == nodes))
       ntimes = a$stop_time[nsel] - a$start_time[nsel]
       med = octiles(ntimes)
-      
-      cat(paste(system, reqTime, nodes, med[4], med[1], med[7], sep='\t'))
+      minTime = min(ntimes)
+
+      cat(paste(system, reqTime, nodes, minTime, med[4], med[1], med[7], sep='\t'))
       cat('\n')
     }
 
