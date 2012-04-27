@@ -1,0 +1,67 @@
+Following is the list of data files:
+-----------------------------------------------
+
+- apptimes_cc2_sierra_hera.csv
+
+	Application execution times on CC2, Sierra and Hera
+	# of tasks: 1024, 512, 256
+	Applications: CG, EP, Sweep3d, LU, SP 
+	Input sizes configured for strong scaling
+	Comments: Decided to not use CG numbers in the paper
+		  since we need to investigate more about app
+		  scalability for the input size
+
+- best_turnaround.1k.csv
+  median_turnaround.1k.csv
+  worst_turnaround.1k.csv
+
+	Best, median and worst turnaround times on CC2, Sierra, Hera
+	(includes total execution time and queuing delay separately). 
+
+- cloud.cc2.1k
+
+	Execution and communication times for all applications
+	on CC2. UMT2k did not run on CC2.
+ 
+- cloud.cc2.512
+  cloud.cc2.256 
+
+	Execution and communication times for select applications
+	on CC2 with same total input size as 1k runs (above). 
+	Applications: CG, EP, Sweep3d, LU, SP
+
+- hera.1k
+  sierra.1k
+	
+	Execution and communication times for all applications
+	on Hera and Sierra respectively. 
+
+- cost_table
+	
+	Costs to run each application on CC2, Sierra and Hera.
+	Cost is calculated in dollar-seconds. 
+	Calculated as:
+	 Total cost = cost per hour per node *
+	               total nodes *
+	               execution time in seconds
+	 Costs considered:
+	    CC2: $2.4 per node per hour
+	 Sierra: $0.03 per node per hour
+	   Hera: $0.03 per node per hour
+
+	Values for Sierra and Hera are based on the following report:
+	http://science.energy.gov//media/ascr/pdf/program-documents/docs/Magellan Final Report.pdf	 
+
+
+
+Raw data in the dictories
+-----------------------------------------------
+Results-5hr-Hera
+Results-5hr-Sierra
+	
+	Raw data for submit and finish times for a 5 hour job
+
+Results-2m-Hera
+Results-2m-Sierra
+	
+	Raw data for submit and finish times for a 2 min job
