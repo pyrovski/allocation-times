@@ -1,0 +1,70 @@
+#Cost of running app on the system
+#Cost is in dollar-seconds. Calculated as:
+# Total cost = cost per hour per node * 
+#		total nodes * 
+#		execution time in seconds
+# Costs considered:
+#    CC2: $2.4 per node per hour
+# Sierra: $0.03 per node per hour
+#   Hera: $0.03 per node per hour
+
+
+bt
+
+Sierra:42.9656832
+Hera:130.48066944
+CC2:34264.7129088
+
+cg
+
+Sierra:18.718851
+Hera:74.443257
+CC2:14936.640614
+
+ep
+
+Sierra:30.666965
+Hera:61.996177
+CC2:2572.602163
+
+lu
+
+Sierra:138.348026
+Hera:291.127514
+CC2:33226.608230
+
+sp
+
+Sierra:58.644579
+Hera:130.298208
+CC2:21313.620480
+
+sparse
+
+Sierra:140.541000
+Hera:101.363704
+CC2:7944.578457
+
+smg2000
+
+Sierra:196.641054
+Hera:339.076688
+CC2:23749.846118
+
+sweep3d
+
+Sierra:38.952894
+Hera:69.737433
+CC2:3433.567334
+
+lammps
+
+Sierra:3.84
+Hera:3.84
+CC2:8540.933222
+
+umt2k
+
+Sierra:57.854446
+Hera:94.164046
+CC2:307.2
