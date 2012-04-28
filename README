@@ -52,6 +52,23 @@ Following is the list of data files:
 	Values for Sierra and Hera are based on the following report:
 	http://science.energy.gov//media/ascr/pdf/program-documents/docs/Magellan Final Report.pdf	 
 
+- strong_scaling_64_32_16_hc_cc_cc8_all.csv
+	Table for comm/exec times for 64,32,16 tasks in CSV form
+
+- strong_scaling_64_32_16_hc_cc_cc8_all.xlsx
+	Same table in Excel format.
+ 
+- costexec
+	data file used by cost_exec.R for the same data (above)
+ 
+- cost_exec.R
+	R script for one plot per app
+ 
+- strong_scaling_next_least_cost_time.csv
+	Table with 'next least' cost and times in CSV format.
+ 
+- strong_scaling_next_least_cost_time.xlsx
+	Same table in Excel format.
 
 
 Raw data in the dictories
