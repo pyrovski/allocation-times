@@ -57,19 +57,27 @@ Following is the list of data files:
 
 - strong_scaling_64_32_16_hc_cc_cc8_all.xlsx
 	Same table in Excel format.
- 
-- costexec
-	data file used by cost_exec.R for the same data (above)
- 
-- cost_exec.R
-	R script for one plot per app
- 
+
 - strong_scaling_next_least_cost_time.csv
 	Table with 'next least' cost and times in CSV format.
  
 - strong_scaling_next_least_cost_time.xlsx
 	Same table in Excel format.
 
+
+
+Graphs
+-----------
+
+- comm_exec.R
+- comm_exec    -- R script and data for component times graph for
+		  1k task runs on 9 apps (5 NAS-PB, 4 others) on
+		  CC2, Sierra, Hera
+
+- cost_exec.R
+- costexec     -- R scritp and data file for 64/32/16 tasks runs
+		  for all apps on CC1, CC2, HC
+ 
 
 Raw data in the dictories
 -----------------------------------------------
